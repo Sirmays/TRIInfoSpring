@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Скопированный приказ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h2>Приказ скопирован в буфер обмена</h2>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Банк</td>
+        <td th:text="${entity.bankName}"></td>
+    </tr>
+    <tr>
+        <td>Дата Приказа</td>
+        <td th:text="${entity.orderDate}"></td>
+    </tr>
+    <tr>
+        <td>Номер приказа</td>
+        <td th:text="${entity.orderNumber}"></td>
+    </tr>
+    <tr>
+        <td>Вид документа</td>
+        <td th:text="${entity.orderName}"></td>
+
+    </tr>
+    <tr>
+        <td>Категория сотрудника</td>
+        <td th:text="${entity.emplCategory}"></td>
+    </tr>
+    <tr>
+        <td>Табельный номер</td>
+        <td th:text="${entity.emplNumber}"></td>
+    </tr>
+    <tr>
+        <td>ФИО Сотрудника</td>
+        <td th:text="${entity.emplName}"></td>
+
+    </tr>
+    <tr>
+        <td>Номер командировки</td>
+        <td th:text="${entity.travelNumber}"></td>
+    </tr>
+    <tr>
+        <td>Дата начала командировки</td>
+        <td th:text="${entity.startDate}"></td>
+
+    </tr>
+    <tr>
+        <td>Дата окончания командировки</td>
+        <td th:text="${entity.endDate}"></td>
+    </tr>
+    <tr>
+        <td>Место назначения</td>
+        <td th:text="${entity.destination}"></td>
+
+    </tr>
+    <tr>
+        <td>Город расположения УРМ</td>
+        <td th:text="${entity.cityURM}"></td>
+    </tr>
+    <tr>
+        <td>Место отправления</td>
+        <td th:text="${entity.departurePoint}"></td>
+    </tr>
+    <tr>
+        <td>Уточ. дата отпр.</td>
+        <td th:text="${entity.clarifyingDepDate}"></td>
+    </tr>
+    <tr>
+        <td>Уточ. дата возвр.</td>
+        <td th:text="${entity.clarifyingArrDate}"></td>
+    </tr>
+    <tr>
+        <td>Принимающая организация</td>
+        <td th:text="${entity.hostOrganisation}"></td>
+    </tr>
+    </thead>
+</table>
+<a th:href="@{'/travels'}" type="button" class="btn btn-primary">На главную</a>
+</body>
+</html>

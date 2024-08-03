@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список командировок</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<h2>Найденные командировки</h2>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Банк</td>
+        <td>Дата Приказа</td>
+        <td>Номер приказа</td>
+        <td>Вид документа</td>
+        <td>Категория сотрудника</td>
+        <td>Табельный номер</td>
+        <td>ФИО Сотрудника</td>
+        <td>Номер командировки</td>
+        <td>Дата начала командировки</td>
+        <td>Дата окончания командировки</td>
+        <td>Место назначения</td>
+        <td>Город расположения УРМ</td>
+        <td>Место отправления</td>
+        <td>Уточ. дата отпр.</td>
+        <td>Уточ. дата возвр.</td>
+        <td>Принимающая организация</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="e : ${entities}">
+        <td th:text="${e.bankName}"></td>
+        <td th:text="${e.orderDate}"></td>
+        <td th:text="${e.orderNumber}"></td>
+        <td th:text="${e.orderName}"></td>
+        <td th:text="${e.emplCategory}"></td>
+        <td th:text="${e.emplNumber}"></td>
+        <td th:text="${e.emplName}"></td>
+        <td th:text="${e.travelNumber}"></td>
+        <td th:text="${e.startDate}"></td>
+        <td th:text="${e.endDate}"></td>
+        <td th:text="${e.destination}"></td>
+        <td th:text="${e.cityURM}"></td>
+        <td th:text="${e.departurePoint}"></td>
+        <td th:text="${e.clarifyingDepDate}"></td>
+        <td th:text="${e.clarifyingArrDate}"></td>
+        <td th:text="${e.hostOrganisation}"></td>
+        <td>
+            <form th:action="@{/clipboard}" method="post">
+                <input type="hidden" name="id" th:value="${e.id}" />
+                <button type="submit" class="btn btn-primary">Копировать</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{'/travels'}" type="button" class="btn btn-primary">На главную</a>
+
+</body>
+</html>
